@@ -1,5 +1,7 @@
 # bodyparser
 
+[![Build Status](https://travis-ci.org/joshbetz/bodyparser.svg?branch=master)](https://travis-ci.org/joshbetz/bodyparser)
+
 Automatically parse the net/http request.Body into request.Form data depending on the Content-Type header.
 
 ## Example
