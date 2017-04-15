@@ -71,6 +71,10 @@ func Parse(r *http.Request) (map[string]interface{}, error) {
 }
 
 func ParseJSON(r *http.Request) (map[string]interface{}, error) {
+	if r.Header["Content-Type"] == nil {
+		return nil, nil
+	}
+
 	if r.Header["Content-Type"][0] != "application/json" {
 		return nil, nil
 	}
