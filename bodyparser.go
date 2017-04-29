@@ -22,7 +22,7 @@ func Middleware(h http.Handler) http.Handler {
 
 		if r.PostForm == nil || len(r.PostForm) <= 0 {
 			if r.Method == "POST" || r.Method == "PUT" || r.Method == "PATCH" {
-				r.PostForm, err = parsePostJson(res)
+				r.PostForm, err = parsePostJSON(res)
 			} else {
 				r.PostForm = make(url.Values)
 			}
@@ -101,7 +101,7 @@ func ParseJSON(r *http.Request) (map[string]interface{}, error) {
 	return res, nil
 }
 
-func parsePostJson(data map[string]interface{}) (url.Values, error) {
+func parsePostJSON(data map[string]interface{}) (url.Values, error) {
 	values := make(url.Values)
 
 	for k, v := range data {
