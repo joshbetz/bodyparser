@@ -10,6 +10,7 @@ import (
 	"strconv"
 )
 
+// Middleware is a net/http middleware function for parsing the request body into Form and PostForm.
 func Middleware(h http.Handler) http.Handler {
 	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
 		res, err := Parse(r)
@@ -38,6 +39,7 @@ func Middleware(h http.Handler) http.Handler {
 	})
 }
 
+// Parse parses the request body depending on the content-type header.
 func Parse(r *http.Request) (map[string]interface{}, error) {
 	res := map[string]interface{}{}
 
@@ -59,7 +61,7 @@ func Parse(r *http.Request) (map[string]interface{}, error) {
 	}
 
 	// application/json
-	res, err = ParseJSON(r)
+	res, err = parseJSON(r)
 
 	if err == io.EOF {
 		return nil, io.EOF
@@ -70,7 +72,7 @@ func Parse(r *http.Request) (map[string]interface{}, error) {
 	return res, nil
 }
 
-func ParseJSON(r *http.Request) (map[string]interface{}, error) {
+func parseJSON(r *http.Request) (map[string]interface{}, error) {
 	if r.Header["Content-Type"] == nil {
 		return nil, nil
 	}
