@@ -1,6 +1,6 @@
 # bodyparser
 
-[![Build Status](https://travis-ci.org/joshbetz/bodyparser.svg?branch=master)](https://travis-ci.org/joshbetz/bodyparser)
+[![Build Status](https://travis-ci.org/joshbetz/bodyparser.svg?branch=master)](https://travis-ci.org/joshbetz/bodyparser) [![Go Report Card](https://goreportcard.com/badge/github.com/joshbetz/bodyparser)](https://goreportcard.com/report/github.com/joshbetz/bodyparser) [![](https://godoc.org/github.com/joshbetz/bodyparser?status.svg)](http://godoc.org/github.com/joshbetz/bodyparser)
 
 Automatically parse the net/http request.Body into request.Form data depending on the Content-Type header.
 
